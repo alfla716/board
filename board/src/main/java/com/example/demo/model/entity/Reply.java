@@ -23,7 +23,7 @@ import lombok.ToString;
 public class Reply {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer no;
+    private int no;
     private String content;
 
     @ManyToOne

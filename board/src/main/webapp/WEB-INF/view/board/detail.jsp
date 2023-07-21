@@ -25,8 +25,15 @@
 	<!-- 댓글기능구현 -->
 	<h1>댓글</h1>
 	<form method="post" action="/reply/regist">
-		
-		<label>글번호: <input type="text" value="${board.no }" readonly="readonly" name="board_no"></label><br>
+		<!-- 
+		<p>
+			<textarea rows="5" cols="50" name="content"></textarea>
+		</p>
+		<p>
+			<button type="submit">댓글 작성</button>
+		</p> 
+		-->
+		<label>글번호: <input type="text" value="${board.no }" readonly="readonly" name="boardNo"></label><br>
 		<label>작성자: <input type="text" value="${loginUser.id }" readonly="readonly" name="userId"></label><br>
 		<textarea rows="3" cols="100" name="content"></textarea><br>
 		
@@ -35,10 +42,11 @@
 		
 		<table>
 		<tr><td>no</td><td>reply content</td><td>writer</td></tr>
-		<c:forEach items="${pageInfo.content }" var="board">
+		<c:forEach items="${pageInfo.content }" var="reply">
 			<tr>
 				<td>${reply.no }</td>
-				<td>${reply.board.no }</td>
+				<td>${reply.content }</td>
+				
 				<td>${reply.user.name }</td>
 			</tr>
 		</c:forEach>

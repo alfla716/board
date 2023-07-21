@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class BoardDto {
 	
-	private Integer no;
+	private int no;
 	private String title;
 	private String content;
 	private String userId;

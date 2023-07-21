@@ -12,10 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class ReplyDto {
-	private Integer no;
+	private int no;
 	private String content;
 	private String userId;
-	private Integer boardNo;
+	private int boardNo;
 	
 	public Reply toEntity() {
 		Reply reply = new Reply();

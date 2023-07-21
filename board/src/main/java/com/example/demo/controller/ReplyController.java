@@ -33,12 +33,19 @@ public class ReplyController {
 		return "reply/register";
 	}
 	
-	@PostMapping("/regist")
-	public String doRegist(@ModelAttribute ReplyDto dto) {
-		service.writeReply(dto);
-		return "redirect:/reply/list";
-		
-	}
+//	@PostMapping("/regist")
+//	public String doRegist(@ModelAttribute ReplyDto dto) {
+//		service.writeReply(dto);
+//		return "redirect:/reply/list";
+//		
+//	}
+	
+	 @PostMapping("/regist")
+     public String doRegist(@ModelAttribute ReplyDto dto) {
+             service.writeReply(dto);
+//             return "redirect:/reply/list";
+               return "redirect:http://localhost:8080/board/detail?no="+dto.getBoardNo();
+     }
 	
 	@GetMapping("/list")
 	public String list(@RequestParam(required = false, defaultValue = "1") Integer page, Model model) {
