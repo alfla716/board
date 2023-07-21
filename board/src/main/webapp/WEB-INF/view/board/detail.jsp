@@ -39,21 +39,28 @@
 		
 		<input type="submit" value="등록">
 		
-		
-		<table>
+	</form>
+	
+	<hr>
+	
+		<!-- 
 		<tr><td>no</td><td>reply content</td><td>writer</td></tr>
 		<c:forEach items="${pageInfo.content }" var="reply">
-			<tr>
-				<td>${reply.no }</td>
-				<td>${reply.content }</td>
-				
-				<td>${reply.user.name }</td>
-			</tr>
-		</c:forEach>
-	</table>
+			 -->
+	<!-- <form method="get" action="/reply/list">
+		<ul>
+			<li>첫번째 댓글</li>
+			<li>두번째 댓글</li>
+			<li>세번째 댓글</li>
+		</ul>
+	</form> -->		 
+	
+			<!-- </c:forEach>
+	 -->
 		
 		
-	</form>
+		
+	
 	
 	<!--  댓글리스트
 	<table>

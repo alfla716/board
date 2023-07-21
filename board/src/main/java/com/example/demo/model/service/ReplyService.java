@@ -1,10 +1,10 @@
 package com.example.demo.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort.Direction;
+//import org.springframework.data.domain.Page;
+//import org.springframework.data.domain.PageRequest;
+//import org.springframework.data.domain.Pageable;
+//import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.dto.ReplyDto;
@@ -42,10 +42,10 @@ public class ReplyService {
 		rrepo.saveAndFlush(reply);
 	}
 	
-	public Page<Reply> listReply(int page){
-		Pageable pageable = PageRequest.of(page, 5, Direction.DESC, "no");
-		Page<Reply> pageInfo = rrepo.findAll(pageable);
-		return pageInfo;
-	}
+//	public Page<Reply> listReply(int page){
+//		Pageable pageable = PageRequest.of(page, 5, Direction.DESC, "no");
+//		Page<Reply> pageInfo = rrepo.findAll(pageable);
+//		return pageInfo;
+//	}
 
 }

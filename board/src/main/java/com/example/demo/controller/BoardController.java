@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -13,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.dto.BoardDto;
 import com.example.demo.model.entity.Board;
-//import com.example.demo.model.entity.Reply;
-//import com.example.demo.model.dto.UserDto;
+import com.example.demo.model.entity.Reply;
+import com.example.demo.model.dto.UserDto;
 import com.example.demo.model.service.BoardService;
 import com.example.demo.model.service.ReplyService;
 
@@ -26,12 +28,12 @@ import lombok.extern.slf4j.Slf4j;
 public class BoardController {
 	
 	private BoardService service;
-//	private ReplyService replyService;
+	private ReplyService replyService;
 	
 	@Autowired
 	public BoardController(BoardService service, ReplyService replyService) {
 		this.service = service;
-//		this.replyService = replyService;
+		this.replyService = replyService;
 	}
 	
 	@GetMapping("/regist")
@@ -56,11 +58,13 @@ public class BoardController {
 	}
 	
 	@GetMapping("/detail")
-	public String detail(@RequestParam int no, Model model) {
+	public String detail(@RequestParam("no") int no, Model model) {
 		log.debug("no: {}", no);
 		try {
 			Board board = service.detailBoard(no);
 			model.addAttribute("board",board);
+//			List<Reply> reply = null;
+//			reply = replyService.
 			return "board/detail";
 		}catch(RuntimeException e){
 			return "/board/list";

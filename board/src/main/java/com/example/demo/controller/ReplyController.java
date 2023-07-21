@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 //import com.example.demo.model.dto.BoardDto;
 import com.example.demo.model.dto.ReplyDto;
+import com.example.demo.model.dto.UserDto;
+import com.example.demo.model.entity.Board;
 //import com.example.demo.model.entity.Board;
 import com.example.demo.model.entity.Reply;
 import com.example.demo.model.service.ReplyService;
@@ -32,6 +34,8 @@ public class ReplyController {
 	public String registReply() {
 		return "reply/register";
 	}
+		
+	
 	
 //	@PostMapping("/regist")
 //	public String doRegist(@ModelAttribute ReplyDto dto) {
@@ -42,19 +46,21 @@ public class ReplyController {
 	
 	 @PostMapping("/regist")
      public String doRegist(@ModelAttribute ReplyDto dto) {
-             service.writeReply(dto);
+		 
+		 service.writeReply(dto);
 //             return "redirect:/reply/list";
-               return "redirect:http://localhost:8080/board/detail?no="+dto.getBoardNo();
+         return "redirect:http://localhost:8080/board/detail?no="+dto.getBoardNo();
      }
 	
-	@GetMapping("/list")
-	public String list(@RequestParam(required = false, defaultValue = "1") Integer page, Model model) {
-		page--;
-//		log.debug("page: {}",page);
-		Page<Reply> pageInfo = service.listReply(page);
-		model.addAttribute("pageInfo", pageInfo);
-		return "reply/list";
-	}
+//	@GetMapping("/list")
+//	public String list(@RequestParam(required = false, defaultValue = "1") Integer page, Model model) {
+//		ReplyDto dto = new ReplyDto();
+//		page--;
+////		log.debug("page: {}",page);
+//		Page<Reply> pageInfo = service.listReply(page);
+//		model.addAttribute("pageInfo", pageInfo);
+//		return "http://localhost:8080/board/detail?no="+dto.getBoardNo();
+//	}
 	
 
 }
