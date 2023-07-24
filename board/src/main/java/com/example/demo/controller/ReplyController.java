@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -33,6 +35,7 @@ public class ReplyController {
 	@GetMapping("/regist")
 	public String registReply() {
 		return "reply/register";
+//		return "http://localhost:8080/board/detail?no="+dto.getBoardNo();
 	}
 		
 	
@@ -50,9 +53,18 @@ public class ReplyController {
 		 service.writeReply(dto);
 //             return "redirect:/reply/list";
          return "redirect:http://localhost:8080/board/detail?no="+dto.getBoardNo();
+
      }
+	 
+//	@GetMapping("/regist")
+//	public String viewReply() {
+//		List<Reply> reply = null;
+//		reply = ReplyService.
+//		return "reply/register";
+////		return "http://localhost:8080/board/detail?no="+dto.getBoardNo();
+//	}
 	
-//	@GetMapping("/list")
+//	@GetMapping("/regist")
 //	public String list(@RequestParam(required = false, defaultValue = "1") Integer page, Model model) {
 //		ReplyDto dto = new ReplyDto();
 //		page--;
