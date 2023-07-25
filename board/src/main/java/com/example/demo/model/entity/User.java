@@ -8,18 +8,16 @@ import com.example.demo.model.dto.UserDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
-@Data
+//@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@ToString(exclude = "boards")
+//@ToString(exclude = "boards")
 //Database와 관련되며 Service --> Repository에서 사용
 public class User {
 	@Id

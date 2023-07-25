@@ -14,7 +14,7 @@
 		<tr><td>no</td><td>title</td><td>writer</td></tr>
 		<c:forEach items="${pageInfo.content }" var="board">
 			<tr>
-				<td><a href="/board/detail?no=${board.no }">${board.no }</a></td>
+				<td><a href="/board/detail?no=${board.no}">${board.no }</a></td>
 				<td>${board.title }</td>
 				<td>${board.user.name }</td>
 			</tr>

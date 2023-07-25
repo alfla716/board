@@ -48,14 +48,16 @@ public class ReplyController {
 //	}
 	
 	 @PostMapping("/regist")
-     public String doRegist(@ModelAttribute ReplyDto dto) {
+     public String doRegist(@ModelAttribute ReplyDto dto, Model model) {
 		 
 		 service.writeReply(dto);
+		 Page<Reply> replies = service.listReply(dto.getBoardNo());
+
 //             return "redirect:/reply/list";
          return "redirect:http://localhost:8080/board/detail?no="+dto.getBoardNo();
 
      }
-	 
+
 //	@GetMapping("/regist")
 //	public String viewReply() {
 //		List<Reply> reply = null;

@@ -22,9 +22,9 @@
 		<label>글번호: <input type="text" value="${board.no }" readonly="readonly" name="boardNo"></label><br>
 		<label>작성자: <input type="text" value="${loginUser.id }" readonly="readonly" name="userId"></label><br>
 		<textarea rows="3" cols="100" name="content"></textarea><br>
-		
-		<input type="submit" value="등록">
-		
+
+			<input type="submit" value="등록">
+
 	</form>
 	
 	<hr>
@@ -35,23 +35,26 @@
 		<li>두번째 댓글</li>
 		<li>세번째 댓글</li>
 	</ul>
-	
-	<c:if test="${!empty loginUser && board.no==reply.board.no }">
-		<c:forEach items="${reply }" var="reply">
+	<% System.out.println(request.getAttribute("reply")); %>
+<%--	<c:if test="${!empty loginUser && board.no==reply.board.no }">--%>
+		<c:forEach items="${replys}" var="reply">
+			<tr>
+			<tr>
+			<tr>
 			<tr>
 				<td>${reply.no }</td>
 				<td>${reply.content }</td>
 				<td>${reply.user.name }</td>
 			</tr>
 		</c:forEach>
-	</c:if>
+<%--	</c:if>--%>
 	
 	
 		
 		<!-- 댓글리스트 
 		<table>
 			<tr><td>no</td><td>reply content</td><td>writer</td></tr>
-			<c:forEach items="${pageInfo.content }" var="reply">
+			<c:forEach items="${reply.content }" var="reply">
 				<tr>
 					<td>${reply.no }</td>
 					<td>${reply.content }</td>
