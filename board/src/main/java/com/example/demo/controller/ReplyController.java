@@ -79,7 +79,8 @@ public class ReplyController {
 	 @GetMapping("/delete")
 	 public String delete(@RequestParam int no, @ModelAttribute ReplyDto dto, Model model) {
 		 service.deleteReply(no);
-		 return "redirect:http://localhost:8080/board/detail?no="+dto.getBoardNo();
+//		 return "redirect:http://localhost:8080/board/detail?no="+dto.getBoardNo();
+		 return "redirect:/board/list";
 	 }
 	
 
