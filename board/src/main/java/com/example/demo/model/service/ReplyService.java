@@ -1,6 +1,5 @@
 package com.example.demo.model.service;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -44,12 +43,27 @@ public class ReplyService {
 		rrepo.saveAndFlush(reply);
 	}
 	
+//	public Reply detailReply(int no) {
+//		Optional<Reply> option = rrepo.findById(no);
+//		if(option.isPresent()) {
+//			return option.get();
+//		}else {
+//			throw new RuntimeException(no+"댓글이 지워졌나봐요");
+//		}
+//	}
+	
 	public Page<Reply> listReply(int page){
 		Pageable pageable = PageRequest.of(page, 5, Direction.DESC, "no");
 		Page<Reply> replyPageInfo = rrepo.findAll(pageable);
 		return replyPageInfo;
 	}
 	
-//	public List<Reply> listReply(int no) throws Exception;
+
+	
+//	public Optional<Reply> listReply(int no) {
+//        // Retrieve replies for a specific board using boardNo
+//        Optional<Reply> replies = rrepo.findById(no);
+//        return replies;
+//    }
 
 }

@@ -61,10 +61,7 @@ public class BoardController {
 	public String detail(@RequestParam("no") int no, Model model) {
 		log.debug("no: {}", no);
 		try {
-			System.out.println("******1***");
 			Board board = service.detailBoard(no);
-			System.out.println("*********");
-			System.out.println("----- " + board.getReplies());
 			model.addAttribute("board",board);
 			model.addAttribute("replys",board.getReplies());
 //			List<Reply> reply = null;

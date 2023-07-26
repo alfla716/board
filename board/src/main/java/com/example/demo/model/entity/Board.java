@@ -6,9 +6,22 @@ import java.util.List;
 import com.example.demo.model.dto.BoardDto;
 
 //import jakarta.persistence.CascadeType;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
 //import jakarta.persistence.FetchType;
-import lombok.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+//import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+//import lombok.ToString;
+//import lombok.*;
 
 //@Data
 @Setter
@@ -31,7 +44,7 @@ public class Board {
 	
 	@OneToMany(mappedBy = "board")
 	List<Reply> replies;
-
+	
 	public BoardDto toDto() {
 		BoardDto dto = new BoardDto();
 		dto.setNo(this.getNo());
