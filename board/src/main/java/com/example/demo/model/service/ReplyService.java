@@ -50,6 +50,8 @@ public class ReplyService {
 		return replyPageInfo;
 	}
 	
-//	public List<Reply> listReply(int no) throws Exception;
+	public void deleteReply(int no) {
+		rrepo.deleteById(no);
+	}
 
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.model.dto.BoardDto;
 //import com.example.demo.model.dto.BoardDto;
 import com.example.demo.model.dto.ReplyDto;
 import com.example.demo.model.dto.UserDto;
@@ -74,6 +75,12 @@ public class ReplyController {
 //		model.addAttribute("pageInfo", pageInfo);
 //		return "http://localhost:8080/board/detail?no="+dto.getBoardNo();
 //	}
+	 
+	 @GetMapping("/delete")
+	 public String delete(@RequestParam int no, @ModelAttribute ReplyDto dto, Model model) {
+		 service.deleteReply(no);
+		 return "redirect:http://localhost:8080/board/detail?no="+dto.getBoardNo();
+	 }
 	
 
 }
