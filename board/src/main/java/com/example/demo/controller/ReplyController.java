@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,11 +20,8 @@ import com.example.demo.model.entity.Board;
 import com.example.demo.model.entity.Reply;
 import com.example.demo.model.service.ReplyService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Controller
 @RequestMapping("/reply")
-@Slf4j
 public class ReplyController {
 	
 	private ReplyService service;
@@ -38,54 +34,46 @@ public class ReplyController {
 	
 	@GetMapping("/regist")
 	public String registReply() {
-		return "reply/regist";
+		return "reply/register";
 //		return "http://localhost:8080/board/detail?no="+dto.getBoardNo();
 	}
 		
 	
 	
+//	@PostMapping("/regist")
+//	public String doRegist(@ModelAttribute ReplyDto dto) {
+//		service.writeReply(dto);
+//		return "redirect:/reply/list";
+//		
+//	}
+	
 	 @PostMapping("/regist")
      public String doRegist(@ModelAttribute ReplyDto dto, Model model) {
+		 
 		 service.writeReply(dto);
-		 Page<Reply> replies = service.listReply(dto.getBoardNo());
+		 service.listReply(dto.getBoardNo());
 //             return "redirect:/reply/list";
          return "redirect:http://localhost:8080/board/detail?no="+dto.getBoardNo();
 
      }
 	 
-//	@GetMapping("/list")
-//	public String viewReply(@RequestParam int no, Model model) {
-//		Optional<Reply> replies = service.listReply(no);
-//		model.addAttribute("replies", replies);
-//		return "reply/list";
+//	@GetMapping("/regist")
+//	public String viewReply() {
+//		List<Reply> reply = null;
+//		reply = ReplyService.
+//		return "reply/register";
 ////		return "http://localhost:8080/board/detail?no="+dto.getBoardNo();
 //	}
 	
-//	@GetMapping("/list")
+//	@GetMapping("/regist")
 //	public String list(@RequestParam(required = false, defaultValue = "1") Integer page, Model model) {
 //		ReplyDto dto = new ReplyDto();
 //		page--;
-//		log.debug("page: {}",page);
-//		Page<Reply> replyPageInfo = service.listReply(page);
-//		model.addAttribute("replyPageInfo", replyPageInfo);
-////		return "http://localhost:8080/board/detail?no="+dto.getBoardNo();
-//		return "reply/list";
+////		log.debug("page: {}",page);
+//		Page<Reply> pageInfo = service.listReply(page);
+//		model.addAttribute("pageInfo", pageInfo);
+//		return "http://localhost:8080/board/detail?no="+dto.getBoardNo();
 //	}
-	 
-//		@GetMapping("/list")
-//		public String detail(@RequestParam("no") int no, Model model) {
-//			log.debug("no: {}", no);
-//			try {
-//				Reply reply = service.detailReply(no);
-//				model.addAttribute("reply",reply);
-////				List<Reply> reply = null;
-////				reply = replyService.
-//				return "reply/list";
-//			}catch(RuntimeException e){
-//				return "/reply/list";
-//			}
-//			
-//		}
 	
 
 }

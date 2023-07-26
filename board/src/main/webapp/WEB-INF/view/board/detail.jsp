@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,16 +23,23 @@
 		</c:if>
 	</form>
 	
-<!--  	<table>
-		<c:forEach items="${replys}" var="reply">
+	
+	<h1>댓글</h1>
+	<table>	    
+		<tr>
+			<th>number</th>
+		    <th>content</th>
+		    <th>writer</th>
+	    </tr>
+		<c:forEach items="${replys }" var="reply">
 			<tr>
 				<td>${reply.no }</td>
 				<td>${reply.content }</td>
 				<td>${reply.user.name }</td>
 			</tr>
-	</c:forEach>
-	</table> -->
-
+		</c:forEach>
+	</table>
+	
 	<% System.out.println("---- " + request.getAttribute("reply")); %>
 	
 	<%@include file="/WEB-INF/view/reply/regist.jsp" %>
